@@ -1,8 +1,10 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import ky from "ky";
 import { z } from "zod";
+import { ResponseType } from "../types/index.js";
 
 export function MCPTools(server: McpServer) {
+    // This is a example tool that finds a post by id
     server.tool(
         "find_post",
         "Find a post by id",
@@ -17,11 +19,15 @@ export function MCPTools(server: McpServer) {
             const json = await data.json();
 
             return {
-                content: [{
-                    type: "text",
-                    text: `${JSON.stringify(json)}`,
-                }],
+                content: [
+                    {
+                        type: ResponseType.TEXT,
+                        text: JSON.stringify(json),
+                    },
+                ],
             };
         },
     );
+
+    // Add your own tools here
 }
