@@ -1,27 +1,23 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import ky from "ky";
 import { z } from "zod";
+import { ResponseType } from "../types/index.js";
 
 export function MCPTools(server: McpServer) {
-    server.tool(
-        "find_post",
-        "Find a post by id",
-        {
-            query: z.string(),
-        },
-        async ({ query }) => {
-            const data = await ky.get(
-                `https://jsonplaceholder.typicode.com/posts/${query}`,
-            );
-
-            const json = await data.json();
-
-            return {
-                content: [{
-                    type: "text",
-                    text: `${JSON.stringify(json)}`,
-                }],
-            };
-        },
-    );
+  server.tool(
+    "add",
+    "Add two numbers",
+    { a: z.number(), b: z.number() },
+    async ({ a, b }) => {
+      console.log("add function is called");
+      return {
+        content: [
+          {
+            type: ResponseType.TEXT,
+            text: String(a + b),
+          },
+        ],
+      };
+    }
+  );
 }
