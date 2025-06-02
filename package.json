@@ -13,18 +13,18 @@
     "build"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.8.0",
+    "@modelcontextprotocol/sdk": "^1.12.1",
     "express": "^5.1.0",
     "got": "^14.4.7",
-    "ky": "^1.8.0",
+    "ky": "^1.8.1",
     "morgan": "^1.10.0",
-    "zod": "^3.24.2"
+    "zod": "^3.25.47"
   },
   "devDependencies": {
-    "@types/express": "^5.0.1",
+    "@types/express": "^5.0.2",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.14.0",
-    "tsx": "^4.19.3",
+    "@types/node": "^22.15.29",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
